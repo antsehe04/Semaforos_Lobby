@@ -26,19 +26,13 @@ public class Lobby {
     }
 
 
-
-    // Devuelve cuántos huecos quedan libres en la sala
-    public int huecosLibres() {
-        return entradaSemaphore.availablePermits();
-    }
-
     // Metodo que permite a un jugador intentar entrar al lobby
-    public boolean entrarLobby(String nombre) throws InterruptedException {
+    public void entrarLobby(String nombre) throws InterruptedException {
 
         // Si el semáforo no da permiso, es que está llena
         if (!entradaSemaphore.tryAcquire()) {
             System.out.println(nombre + " no pudo entrar. Lobby llena.");
-            return false;
+            return;
         }
 
         // Entró correctamente
@@ -60,11 +54,8 @@ public class Lobby {
             synchronized (jugadoresEnLobby) {
                 jugadoresEnLobby.notifyAll();
             }
-            return true;
         }
 
-        // Si no se cumple condición, simplemente devuelve
-        return true;
     }
 
     // La máquina de emparejamiento llama a esto para montar una partida

@@ -28,7 +28,7 @@ public class Main {
 
         System.out.println("\n--- Todos los jugadores han intentado entrar. ---\n");
 
-        Thread.sleep(5000);
+        Thread.sleep(30000);
 
         System.out.println("\nPROGRAMA FINALIZADO DESPUÉS DE LA SIMULACIÓN.");
     }
