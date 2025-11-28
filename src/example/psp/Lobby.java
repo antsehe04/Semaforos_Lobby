@@ -1,5 +1,6 @@
 package example.psp;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -18,7 +19,6 @@ public class Lobby {
 
     // Indica si hay una partida ya en marcha
     private volatile boolean partidaEnCurso = false;
-
     public Lobby() {
         // Al crear el lobby, arrancamos la máquina que gestionará las partidas
         MaquinaEmparejamiento maquina = new MaquinaEmparejamiento(this);
